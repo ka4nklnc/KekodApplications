@@ -1,0 +1,32 @@
+package com.puasnow.periodictable.models
+
+data class Element(
+    val isEmptySlot:Boolean=false,
+    val appearance: String,
+    val atomic_mass: String,
+    val boil: Double,
+    val category: String,
+    val color: Any,
+    val cpkhex: String,
+    val density: Double,
+    val discovered_by: String,
+    val electron_affinity: Double,
+    val electron_configuration: String,
+    val electron_configuration_semantic: String,
+    val electronegativity_pauling: Double,
+    val ionization_energies: List<Double>,
+    val melt: Double,
+    val molar_heat: Double,
+    val name: String,
+    val named_by: String,
+    val number: String,
+    val period: Int,
+    val phase: String,
+    val shells: List<Int>,
+    val source: String,
+    val spectral_img: String,
+    val summary: String,
+    val symbol: String,
+    val xpos: Int,
+    val ypos: Int
+)

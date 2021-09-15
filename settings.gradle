@@ -1,3 +1,4 @@
 rootProject.name = "KekodApplications"
 include ':app'
 include ':app:news'
+include ':periodictable'
