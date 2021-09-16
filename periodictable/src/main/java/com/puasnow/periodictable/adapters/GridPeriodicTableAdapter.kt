@@ -29,20 +29,16 @@ class GridPeriodicTableAdapter: ListAdapter<Element,RecyclerView.ViewHolder>(obj
         lateinit var viewHolder:RecyclerView.ViewHolder
 
         when(viewType){
-            0 -> viewHolder = PeriodicGridEmptyViewHolder(ItemPeriodictableEmptyBinding.inflate(inflater, parent,false))
+           // 0 -> viewHolder = PeriodicGridEmptyViewHolder(ItemPeriodictableEmptyBinding.inflate(inflater, parent,false))
             1 -> viewHolder = PeriodicGridViewHolder(ItemPeriodictableBinding.inflate(inflater, parent,false))
         }
-
         return viewHolder
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        getItem(position)?.let {
-            if(!it.isEmptySlot)
+        getItem(position).let {
                 (holder as PeriodicGridViewHolder) .bind(it)
-            else {
-                //holder as .bind(it)
-            }
+
         }
     }
 
