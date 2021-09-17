@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingHorizontal="10dp"
     android:paddingBottom="100dp"
+    android:id="@+id/layout"
     android:layout_height="match_parent">
 
     <androidx.viewpager.widget.ViewPager

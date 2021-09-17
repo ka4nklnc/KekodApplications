@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.viewpager.widget.ViewPager
 import com.puasnow.periodictable.R
 import com.puasnow.periodictable.adapters.PeriodicLinearAdapter
@@ -19,6 +20,8 @@ import java.text.DecimalFormat
 class ElementDetailDialog(mContext: Context,val item: Element) {
     private var dialog: Dialog = Dialog(mContext, R.style.full_screen_dialog)
 
+    private var layout: ConstraintLayout
+    private var constraintLayout : ConstraintLayout
     private var viewPager: ViewPager
     private var tv_number: TextView
     private var tv_symbol: TextView
@@ -37,6 +40,8 @@ class ElementDetailDialog(mContext: Context,val item: Element) {
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(R.layout.dialog_elementdetail)
 
+        layout = dialog.findViewById(R.id.layout)
+        constraintLayout = dialog.findViewById(R.id.constraintLayout)
         viewPager = dialog.findViewById(R.id.viewPager)
         tv_number = dialog.findViewById(R.id.tv_number)
         tv_symbol = dialog.findViewById(R.id.tv_symbol)
@@ -54,6 +59,9 @@ class ElementDetailDialog(mContext: Context,val item: Element) {
         dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         tv_symbol.text= selectedItem.symbol
         fadeOutIn()
+
+        layout.setOnClickListener { dialog.dismiss() }
+        constraintLayout.setOnClickListener {}
     }
 
 
