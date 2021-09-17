@@ -1,7 +1,8 @@
 package com.puasnow.periodictable.models
 
 data class Element(
-    val isEmptySlot:Boolean=false,
+    var isSelected: Boolean = false,
+    val isEmptySlot: Boolean=false,
     val appearance: String?=null,
     val atomic_mass: String?=null,
     val boil: Double?=null,

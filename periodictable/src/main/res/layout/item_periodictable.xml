@@ -10,7 +10,6 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout"
-        android:orientation="vertical"
         android:clickable="true"
         android:focusable="true"
         android:layout_width="wrap_content"

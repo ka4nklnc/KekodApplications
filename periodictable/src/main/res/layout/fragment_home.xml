@@ -5,10 +5,31 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:background="#1D2226"
+    android:background="#20242B"
     android:layout_height="match_parent">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_rawRes="@raw/background"
+        app:lottie_autoPlay="true"
+        app:lottie_repeatMode="reverse"
+        app:lottie_loop="true"
+        />
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_vector_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#FFF" />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:padding="5dp"
+        android:clipToPadding="false"
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"

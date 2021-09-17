@@ -2,7 +2,6 @@ package com.puasnow.periodictable.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +10,6 @@ import com.puasnow.periodictable.adapters.viewholders.PeriodicGridViewHolder
 import com.puasnow.periodictable.databinding.ItemPeriodictableBinding
 import com.puasnow.periodictable.databinding.ItemPeriodictableEmptyBinding
 import com.puasnow.periodictable.models.Element
-import com.puasnow.periodictable.models.PeriodicTableModel
 
 class GridPeriodicTableAdapter: ListAdapter<Element,RecyclerView.ViewHolder>(object:DiffUtil.ItemCallback<Element>(){
     override fun areItemsTheSame(oldItem: Element, newItem: Element): Boolean {
@@ -29,7 +27,7 @@ class GridPeriodicTableAdapter: ListAdapter<Element,RecyclerView.ViewHolder>(obj
         lateinit var viewHolder:RecyclerView.ViewHolder
 
         when(viewType){
-           // 0 -> viewHolder = PeriodicGridEmptyViewHolder(ItemPeriodictableEmptyBinding.inflate(inflater, parent,false))
+            0 -> viewHolder = PeriodicGridEmptyViewHolder(ItemPeriodictableEmptyBinding.inflate(inflater, parent,false))
             1 -> viewHolder = PeriodicGridViewHolder(ItemPeriodictableBinding.inflate(inflater, parent,false))
         }
         return viewHolder
@@ -37,8 +35,11 @@ class GridPeriodicTableAdapter: ListAdapter<Element,RecyclerView.ViewHolder>(obj
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         getItem(position).let {
-                (holder as PeriodicGridViewHolder) .bind(it)
-
+            when(holder)
+            {
+                is PeriodicGridViewHolder -> holder.bind(it)
+                is PeriodicGridEmptyViewHolder -> holder.bind(it)
+            }
         }
     }
 
