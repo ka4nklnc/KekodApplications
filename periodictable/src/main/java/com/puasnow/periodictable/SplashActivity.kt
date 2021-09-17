@@ -16,6 +16,7 @@ class SplashActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.IO) {
             delay(3000)
             startActivity(Intent(applicationContext,MainActivity::class.java))
+            finish()
         }
     }
 }
